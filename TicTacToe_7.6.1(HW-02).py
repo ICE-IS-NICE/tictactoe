@@ -40,7 +40,7 @@ def FindLoseCondition(VL):
 
 def SanitizeTurn(number):
     """
-    "00" -> 0 and 0
+    00 -> 0 and 0
     """
     row = number // 10
     col = number % 10
@@ -114,7 +114,7 @@ while True:
         break
     
     if(counterplay_line is not None):
-        VictoryLine.pop(counterplay_line) #no one can use this lone to win no more
+        VictoryLine.pop(counterplay_line) #no one can use this line to win no more
         counterplay_line = None
     
     win_line = None
@@ -125,7 +125,7 @@ while True:
     win_line, win_certanty = FindWinCondition(VictoryLine)
     lose_line, lose_certanty = FindLoseCondition(VictoryLine)
 
-    #doesn't matter where to place marker
+    #doesn't matter where to place a marker
     if((win_certanty == 0) and (lose_certanty != 2)):
         row_enemy = random.randint(0,2)
         col_enemy = random.randint(0,2)
@@ -178,6 +178,6 @@ while True:
         break
     
     if(counterplay_line is not None):
-        VictoryLine.pop(counterplay_line) #no one can use this lone to win no more
+        VictoryLine.pop(counterplay_line) #no one can use this line to win no more
         counterplay_line = None
 
