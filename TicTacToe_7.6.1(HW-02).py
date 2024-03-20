@@ -5,9 +5,6 @@ def PrintField(F):
     for i in F:
         print(*i)
 
-def Clamp(num, min_value, max_value):
-    return max(min(num, max_value), min_value)
-
 def FindWinCondition(VL):
     """
     computer opponent analyzes winning possibilities
@@ -44,8 +41,6 @@ def SanitizeTurn(number):
     """
     row = number // 10
     col = number % 10
-    row = Clamp(row, 0, 2)
-    col = Clamp(col, 0, 2)
     return row, col
 
 #initial field generation
@@ -89,7 +84,7 @@ while True:
         input("Error. Enter to try again.")
         continue
     row, col = SanitizeTurn(turn)
-    if(field[row+1][col+1] != "-"):
+    if(not ((0 <= row <= 2) and (0 <= col <= 2)) or (field[row+1][col+1] != "-")):
         input("You cant place X here. Enter to try again.")
         continue
     field[row+1][col+1] = "x"
